@@ -8,11 +8,19 @@ test("render one row per user", () => {
     { name: "sam", email: "sam@sam.come" },
   ];
 
-  render(<UserList users={users} />);
+  const { container } = render(<UserList users={users} />);
   // find all the rows in the table
-  const rows = within(screen.getByTestId("users")).getAllByRole("row");
-  //   const rows = screen.getAllByRole("row"); // this will include header as well
-  //   screen.logTestingPlaygroundURL();
+
+  // way two
+  const rows = container.querySelectorAll("tbody tr");
+  //   // way one
+  //   const rows = within(screen.getByTestId("users")).getAllByRole("row");
+
+  //   // not a good way here:
+  //     const rows = screen.getAllByRole("row"); // this will include header as well
+
+  //   // little tool to help spot on suggested query
+  //     screen.logTestingPlaygroundURL();
   // assertion: correct number of rows in the table
   expect(rows).toHaveLength(2);
 });
