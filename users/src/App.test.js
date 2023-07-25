@@ -22,5 +22,12 @@ test("can receive a new user and how it on a list", async () => {
 
   await user.click(button);
 
-  screen.debug();
+  // screen.debug();
+
+  // on the list:
+  const name = screen.getByRole("cell", { name: "jane" });
+  const email = screen.getByRole("cell", { name: "jane@jane.com" });
+
+  expect(name).toBeInTheDocument();
+  expect(email).toBeInTheDocument();
 });
