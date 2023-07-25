@@ -31,7 +31,7 @@ test("it calls onUserAdd when the form is submitted", async () => {
     name: /name/i, // i for not case sensitive
   });
   const emailInput = screen.getByRole("textbox", {
-    email: /email/i,
+    name: /email/i,
   });
   // const [nameInput, emailInput] = screen.getAllByRole("textbox");
 
